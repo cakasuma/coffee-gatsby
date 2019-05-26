@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "gatsby"
 import logo from '../../images/logo.svg';
 import { FaCartArrowDown } from 'react-icons/fa';
+import { Location } from '@reach/router';
 
 class Navbar extends Component {
     state = {
@@ -22,18 +23,18 @@ class Navbar extends Component {
     }
 
     navbarHandler = () => {
-        this.state.navbar_open ? this.setState({ 
+        this.state.navbar_open
+        ? this.setState({
             navbar_open: false,
-            css: 'collapse navbar-collapse'
-         })
-         :
-         this.setState({
-             navbar_open: true,
-             css: 'collapse navbar-collapse show',
-         });
+            css: "collapse navbar-collapse",
+        })
+        : this.setState({
+            navbar_open: true,
+            css: "collapse navbar-collapse show",
+        });
     }
 
-    render() { 
+    render() {
         return (
             <nav className='navbar navbar-expand-sm bg-light navbar-light'>
                 <Link to='/' className='navbar-brand'>
@@ -48,9 +49,13 @@ https://www.iconfinder.com/webalys */}
                 <div className={this.state.css}>
                     <ul className="navbar-nav mx-auto">
                         { this.state.links.map(link => (
-                            <li key={link.id} className='nav-item'>
-                                <Link to={link.path} className='nav-link text-capitalize' >{link.text}</Link>
-                            </li>
+                            <Location key={link.id}>
+                                {({ location }) => (
+                                    <li key={link.id} className={`nav-item ${location.pathname === link.path ? 'active' : ''}`}>
+                                        <Link to={link.path} className='nav-link text-capitalize' >{link.text}</Link>
+                                    </li>
+                                    )}
+                            </Location>
                         ))
                         }
                         <li className="nav-item ml-sm-5">

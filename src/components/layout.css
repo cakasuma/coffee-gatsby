@@ -1,5 +1,5 @@
 :root {
-  --main_brown: #2d1ef1;
+  --main_brown: #2d1e1f;
   --main_yellow: #ff9e09;
   --main_rey: #ece8dc;
   --main_white: #ffffff;
@@ -25,4 +25,31 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   color: var(--main_yellow);
   font-size: 2rem;
+}
+
+.default-background, .about-background {
+  opacity: 1 !important;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(255, 158, 9, 0.5), rgba(255, 158, 9, 0.5));
+  background-position: center;
+  background-size: cover;
+}
+.about-background {
+  min-height: 60vh;
+}
+
+.btn-yellow {
+  color: var(--main_yellow);
+  border-color: var(--main_yellow);
+}
+.btn-yellow:hover {
+  background: var(--main_yellow);
+  color: var(--main_brown);
+}
+
+.footer {
+  background: var(--main_brown);
 }

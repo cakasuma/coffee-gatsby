@@ -13,11 +13,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./layout.css"
 
 import Navbar from './global/navbar.jsx';
+import Footer from "./global/footer";
+
 
 const Layout = ({ children }) => (
   <>
     <Navbar />
     { children }
+    <Footer />
   </>
 )
 

@@ -6,17 +6,17 @@ import SEO from "../components/seo"
 import BackgroundSection from '../components/global/background-section.jsx'
 import Info from '../components/home/info.jsx'
 
-const IndexPage = ({ data }) => (
+const AboutPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
-    <BackgroundSection img={data.img.childImageSharp.fluid} title='coffee gatsby' />
+    <SEO title="About" />
+    <BackgroundSection img={data.img.childImageSharp.fluid} title='about us' style='about-background' />
     <Info />
   </Layout>
 )
 
 export const query = graphql`
   {
-    img: file(relativePath: {eq: "default-background.jpeg"}) {
+    img: file(relativePath: {eq: "about-background.jpeg"}) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
@@ -26,4 +26,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default AboutPage
